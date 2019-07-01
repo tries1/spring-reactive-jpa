@@ -1,0 +1,27 @@
+#spring.reactor.netty.ioWorkerCount: 1
+
+logging:
+  level:
+    root: info
+  pattern:
+    console: '%date - %-5p %t %-25logger{5} %F:%L %m%n'
+
+spring:
+  datasource:
+    #url: jdbc:mysql://localhost:3306/spring?useSSL=false
+    url: jdbc:mysql://localhost:3306/spring?useSSL=false
+    username: spring
+    password: spring
+    driverClassName: com.mysql.jdbc.Driver
+    connectionTestQuery: select 1 from dual
+    validationQuery: /* ping */ select 1 from dual
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 3600000
+    jmx-enabled: true
+    tomcat:
+      initial-size: 10
+      min-idle: 10
+      max-active: 10
+      max-idle: 10
+      max-wait: 5000
+

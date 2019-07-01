@@ -1,0 +1,21 @@
+version: "3"
+services:
+  mysql:
+    container_name: "mysql"
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql_local
+      - MYSQL_USER=spring
+      - MYSQL_PASSWORD=spring
+    #volumes:
+    #  - ./data:/var/lib/mysql
+    #command: mongod --smallfiles --logpath=/dev/null # --quiet
+    ports:
+    - 30960:3306
+    #command: --smallfiles
+  app:
+    image: spring-reactive-jpa # Dockerfile에서 지정했던 app 이름
+    ports:
+    - 5000:8080
+    links:
+    - mysql
