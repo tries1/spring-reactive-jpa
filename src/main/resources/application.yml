@@ -4,7 +4,7 @@ logging:
   level:
     root: info
   pattern:
-    console: '%date - %-5p %t %-25logger{5} %F:%L %m%n'
+    console: '[key : %X{key}][userId : %X{userId}] %date - %-5p %t %-25logger{5} %F:%L %m%n'
 
 spring:
   datasource:
